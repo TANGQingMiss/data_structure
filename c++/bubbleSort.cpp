@@ -1,5 +1,3 @@
-//delete duplicate element in an ordered array
-//function uniquify
 #include <iostream>
 #include <string>
 using namespace std;
