@@ -1,6 +1,5 @@
-//this file is used to create a graph and realize breadth first search
-//as well as depth first search
-//in adjacent list
+//this file is used to solve dijkstra algorithm
+//to find nearest distance for each vertex i,j
 #include <iostream>
 #include <stdio.h>
 #include <string>
