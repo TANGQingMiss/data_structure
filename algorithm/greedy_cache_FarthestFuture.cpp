@@ -30,19 +30,32 @@ int cacheFF(vector<int> &cache, int num, vector<int> requests, int need){
             cout<<"this element not exist in cache, modify cache"<<endl;
             int max = findElement(requests,cache[0]);
             int curIdx = 0;//initialize as the first element
-            for(int j = 1; j < num; j++){
-                //check which element is the farthest to be visited
-                if(findElement(requests,cache[j]) > max){
-                    //modify max number and note curIdx in cache
-                    max = findElement(requests,cache[j]);
-                    curIdx = j;
+            if(max == -1){
+                cout<<"need to modify "<<cache[curIdx]<<" element";
+                cache[curIdx] = requests[i];
+                cout<<"modify cache by replacing by "<<requests[i]<<endl;
+                cout<<"able to find element "<<requests[i]<<" in modified cache"<<endl;
+                cnt++;       
+            }else{
+                for(int j = 1; j < num; j++){
+                    if(findElement(requests,cache[j]) == -1){//first whether there is an element never called
+                        curIdx = j;
+                        break;
+                    }
+                    //check which element is the farthest to be visited
+                    else if(findElement(requests,cache[j]) > max){
+                        //modify max number and note curIdx in cache
+                        max = findElement(requests,cache[j]);
+                        curIdx = j;
+                    }
                 }
+                //after find index, modify cache
+                cout<<"need to modify "<<cache[curIdx]<<" element";
+                cache[curIdx] = requests[i];
+                cout<<"modify cache by replacing by "<<requests[i]<<endl;
+                cout<<"able to find element "<<requests[i]<<" in modified cache"<<endl;
+                cnt++;
             }
-            //after find index, modify cache
-            cache[curIdx] = requests[i];
-            cout<<"modify cache by replacing by "<<requests[i]<<endl;
-            cout<<"able to find element "<<requests[i]<<" in modified cache"<<endl;
-            cnt++;
         }
     }
     return cnt;
