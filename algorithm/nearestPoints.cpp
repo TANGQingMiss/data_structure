@@ -1,6 +1,5 @@
-//calculate inversion pairs by divide and conquer
-//mergeSort -> merge
-//left part, right part -> pairs: pairs in left + pairs in right + pairs in both
+//calculate nearest distances by divide and conquer
+//left part, right part -> min = min(left,right,middle-min/+min)
 #include<iostream>
 #include <math.h>
 using namespace std;
